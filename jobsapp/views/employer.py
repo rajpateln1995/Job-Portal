@@ -93,3 +93,14 @@ def filled(request, job_id=None):
         print(e.message)
         return HttpResponseRedirect(reverse_lazy('jobs:employer-dashboard'))
     return HttpResponseRedirect(reverse_lazy('jobs:employer-dashboard'))
+
+
+@login_required(login_url=reverse_lazy('accounts:login'))
+def delete(request, job_id=None):
+    try:
+        job = Job.objects.filter(id=job_id)
+        job.delete()
+    except IntegrityError as e:
+        print(e.message)
+        return HttpResponseRedirect(reverse_lazy('jobs:employer-dashboard'))
+    return HttpResponseRedirect(reverse_lazy('jobs:employer-dashboard'))
