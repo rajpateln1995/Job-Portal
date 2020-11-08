@@ -83,10 +83,10 @@
                             <div class="col-lg-12 form-group">
                                 <!-- <label for="job_category">Category</label> -->
                                 <select id="job_category" name="category" class="form-control select2">
-                                    <option value="1" {% if form.category.value == "Plumbing" %} selected {% endif %}>Plumbing</option>
-                                    <option value="2" {% if form.category.value == "Carpentry" %} selected {% endif %}>Carpentry</option>
-                                    <option value="3" {% if form.category.value == "Masonary" %} selected {% endif %}>Masonary</option>
-                                    <option value="4" {% if form.category.value == "Electrical Repair" %} selected {% endif %}>Electrical Repair</option>   
+                                    <option value="Plumbing" {% if form.category.value == "Plumbing" %} selected {% endif %}>Plumbing</option>
+                                    <option value="Carpentry" {% if form.category.value == "Carpentry" %} selected {% endif %}>Carpentry</option>
+                                    <option value="Masonary" {% if form.category.value == "Masonary" %} selected {% endif %}>Masonary</option>
+                                    <option value="Electrical Repair" {% if form.category.value == "Electrical Repair" %} selected {% endif %}>Electrical Repair</option>   
                                 </select>
                             </div>
                         </div>

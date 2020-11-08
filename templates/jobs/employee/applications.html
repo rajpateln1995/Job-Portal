@@ -18,17 +18,20 @@
     <section>
         <div class="container">
             <div class="row">
-                {% for application in applications %}
+                {% for job in jobs_list %}
+        
                     <div class="col-lg-6">
                         <div class="box application">
-                            <h4>{{ application.user.get_full_name }}</h4>
-                            <p><strong>Applied position: {{ application.job.title }}</strong></p>
+                            <p><strong>Applied position: {{job.title}} </strong></p>
                             <a href="#" data-toggle="modal" data-target="#contact-modal"
                                class="btn btn-outline-white-secondary btn-sm">
                                 <i class="fa fa-envelope"></i>Contact
                             </a>
+                            <div class="col-10 col-md-3 col-lg-2 ml-auto"><i class="fa fa-map-marker job__location"></i>
+                                {{job.location}}
+                            </div>
                             <p>
-                                <span class="badge badge-info">Applied {{ application.created_at.astimezone }}</span>
+                                <span class="badge badge-info"> {{job.category}}</span>
                             </p>
                             <div class="d-flex justify-content-between">
                                 <p class="intro"></p>
@@ -40,7 +43,7 @@
                         </div>
                     </div>
                 {% endfor %}
-                {% if is_paginated %}
+                <!-- {% if is_paginated %}
                     <div class="row">
                         <div class="col-md-12">
                             <nav aria-label="Page navigation example" class="d-flex justify-content-center mt-4 mb-4">
@@ -82,9 +85,11 @@
                     </div>
                 {% else %}
                     <h3>No applications</h3>
-                {% endif %}
+                {% endif %} -->
             </div>
         </div>
     </section>
+
+
 
 {% endblock %}

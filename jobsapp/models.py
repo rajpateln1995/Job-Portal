@@ -17,7 +17,7 @@ class Job(models.Model):
     title = models.CharField(max_length=300)
     description = models.TextField()
     location = models.CharField(max_length=150)
-    category = models.CharField(choices=JOB_TYPE, max_length=10)
+    category = models.CharField(choices=JOB_TYPE, max_length=20)
     last_date = models.DateTimeField()
     company_name = models.CharField(max_length=100)
     website = models.CharField(max_length=100, default="")

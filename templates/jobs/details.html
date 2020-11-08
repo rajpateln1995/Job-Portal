@@ -12,7 +12,7 @@
             <h1 class="heading">{{ job.title }}<br>
                 <small>at <a href="#"> {{ job.company_name }}</a></small>
             </h1>
-            <div class="job-detail-description"><i class="fa fa-map-marker job__location"> </i>
+            <!-- <div class="job-detail-description"><i class="fa fa-map-marker job__location"> </i>
                 {{ job.location }} | Posted {{ job.created_at|timesince }} |
                 {% if job.type == '1' %}
                     <span class="badge featured-badge badge-success">Full time</span>
@@ -20,7 +20,7 @@
                     <span class="badge featured-badge badge-primary">Part time</span>
                 {% else %}
                     <span style="color: #ffffff;" class="badge featured-badge badge-warning">Internship</span>
-                {% endif %}
+                {% endif %} -->
             </div>
         </div>
     </section>
@@ -28,11 +28,23 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <h3>Category: {{ job.category }}</h3>
+                    {% if job.category == "1" %}
+                    <span class="badge featured-badge badge-success">Plumbing</span>
+                    {% elif job.category == "2" %}
+                        <span class="badge featured-badge badge-primary">Carpentry</span>
+                    {% elif job.category == "3" %}
+                        <span style="color: #ffffff;" class="badge featured-badge badge-warning">Masonary</span>
+                    
+                    {% elif job.category == "4" %}
+                        <span style="color: #ffffff;" class="badge featured-badge badge-dark">Masonary</span>
+                    {% endif %}
                     <h5>Last date: {{ job.last_date|date }}</h5>
                     <h5 class="text-info">Salary: {% if job.salary > 0 %} {{ job.salary }}/Monthly {% else %} Negotiable {% endif %} </h5>
                     <blockquote class="blockquote">
                         <p>{{ job.description }}</p>
+                        <p>Electricity: {% if job.electricity == "True" %} Yes {% else %} No {% endif %} </p>
+                        <p>Living: {% if job.living_space == "True" %} Yes {% else %} No {% endif %} </p>
+                       
                     </blockquote>
                     <div class="job-detail__apply-bottom">
                         {% if request.user.is_authenticated %}

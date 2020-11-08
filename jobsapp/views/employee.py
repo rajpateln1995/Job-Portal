@@ -41,28 +41,26 @@ class EditProfileView(UpdateView):
 
 
 class ApplicationsView(ListView):
-    model = Applicant
+    model = Job
     template_name = 'jobs/employee/applications.html'
-    context_object_name = 'applications'
-
+    context_object_name = 'jobs_list'
+    # @login_required(login_url=reverse_lazy('accounts:login'))
     def get_queryset(self):
-        # jobs = Job.objects.filter(user_id=self.request.user.id)
-        return self.model.objects.get(job__user_id=self.request.user.id)
+        applied_job = Applicant.objects.filter(user = self.request.user.id).values('job')
+        l = []
+        for j in applied_job:
+            l.append(j['job'])
+        jobs = []
+        for j in l :
+            job = self.model.objects.filter(id=j).values('title','location','category')
+            jobs.append(job)
 
+        for j in jobs:
+            for i in j:
+                print(i)
 
-    @login_required(login_url=reverse_lazy('accounts:login'))
-    def filled(self,request, user_id=None):
-        try:
-            # job = Job.objects.get(user_id=request.user.id, id=user_id)
-            # job.filled = True
-            # job.save()
-            user = self.get_queryset()
-            jobs = Applicant.objects.filter(job,user)
-            jobs.save()
-
-            
-
-        except IntegrityError as e:
-            print(e.message)
-            return HttpResponseRedirect(reverse_lazy('jobs:employer-dashboard'))
-        return HttpResponseRedirect(reverse_lazy('jobs:home'  ))
+        return job
+    
+    
+    
+    

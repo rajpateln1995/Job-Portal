@@ -91,7 +91,7 @@ class EmployerRegistrationForm(UserCreationForm):
         super(EmployerRegistrationForm, self).__init__(*args, **kwargs)
         self.fields['first_name'].label = "Company Name"
         self.fields['last_name'].label = "Company Address"
-        self.fields['ig_url'].label = "Instagram Link"
+        self.fields['ig_url'].label = "Facebook Link"
         self.fields['twitter_url'].label = "Twitter Link"
         self.fields['password1'].label = "Password"
         self.fields['password2'].label = "Confirm Password"
@@ -123,7 +123,7 @@ class EmployerRegistrationForm(UserCreationForm):
         )
         self.fields['ig_url'].widget.attrs.update(
             {
-                'placeholder': 'Instagram Link',
+                'placeholder': 'Facebook Link',
             }
         )
         self.fields['twitter_url'].widget.attrs.update(
