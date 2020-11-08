@@ -80,9 +80,11 @@
                             </nav>
                         </div>
                     </div>
-                {% else %}
+                {% endif %}
+                {% if not applicants %}
                     <h3>No Applicants</h3>
                 {% endif %}
+                   
             </div>
         </div>
     </section>

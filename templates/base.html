@@ -71,9 +71,10 @@
                                class="nav-link dropdown-toggle has-img mb-3 mb-lg-0 mt-3 mt-lg-0">
                                 <div class="client-menu-image">
                                     <div class="inner">
-                                        <img src="{% static 'img/company-1.png' %}"
+                                        <img src="{% static 'img/user.svg' %}"
                                              alt="company image"
-                                             class="img-fluid">
+                                             class="img-fluid"> 
+                                                
                                     </div>
                                 </div>
                                 {% if request.user.role == 'employee' %}
@@ -116,7 +117,7 @@
                     {% else %}
                         <li class="nav-item dropdown">
                             <a id="pages" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                               class="nav-link dropdown-toggle"><i class="fa fa-signing"></i>Register
+                               class="nav-link dropdown-toggle"><i class="fa fa-user-plus" aria-hidden="true"></i></i>Register
                             </a>
                             <div aria-labelledby="pages" class="dropdown-menu">
                                 <a href="{% url 'accounts:employee-register' %}" class="dropdown-item">Employee</a>
@@ -159,6 +160,7 @@
                     <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis
                         aliquet congue. </p>
                 </div>
+                
             </div>
         </div>
     </div>
@@ -168,7 +170,7 @@
                 <div class="col-md-6 text-md-left text-center">
                     <p>&copy;2020 Jobs</p>
                 </div>
-            </div>
+            </div>  
         </div>
     </div>
 </footer>
