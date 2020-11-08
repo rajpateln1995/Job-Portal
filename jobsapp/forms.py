@@ -10,7 +10,8 @@ class CreateJobForm(forms.ModelForm):
         labels = {
             "last_date": "Last Date",
             "company_name": "Company Name",
-            "company_description": "Company Description"
+            "company_description": "Company Description",
+            "job_category": "Job Category"
         }
 
     def is_valid(self):

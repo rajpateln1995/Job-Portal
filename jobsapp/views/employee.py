@@ -1,12 +1,15 @@
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
+from django.db import IntegrityError
+from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
-from django.views.generic import UpdateView
+from django.views.generic import UpdateView,CreateView,ListView
 
 from accounts.forms import EmployeeProfileUpdateForm
 from accounts.models import User
 from jobsapp.decorators import user_is_employee
+from jobsapp.models import Job, Applicant
 
 
 class EditProfileView(UpdateView):
@@ -35,3 +38,31 @@ class EditProfileView(UpdateView):
         if obj is None:
             raise Http404("Job doesn't exists")
         return obj
+
+
+class ApplicationsView(ListView):
+    model = Applicant
+    template_name = 'jobs/employee/applications.html'
+    context_object_name = 'applications'
+
+    def get_queryset(self):
+        # jobs = Job.objects.filter(user_id=self.request.user.id)
+        return self.model.objects.get(job__user_id=self.request.user.id)
+
+
+    @login_required(login_url=reverse_lazy('accounts:login'))
+    def filled(self,request, user_id=None):
+        try:
+            # job = Job.objects.get(user_id=request.user.id, id=user_id)
+            # job.filled = True
+            # job.save()
+            user = self.get_queryset()
+            jobs = Applicant.objects.filter(job,user)
+            jobs.save()
+
+            
+
+        except IntegrityError as e:
+            print(e.message)
+            return HttpResponseRedirect(reverse_lazy('jobs:employer-dashboard'))
+        return HttpResponseRedirect(reverse_lazy('jobs:home'  ))
