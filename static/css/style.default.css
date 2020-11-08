@@ -20,6 +20,11 @@ button {
 	cursor: pointer
 }
 
+.offset-3 {
+	margin-left: auto;
+	margin-right: auto;
+}
+
 section.section-divider {
 	position: relative;
 	background-size: cover;
@@ -515,16 +520,16 @@ ul.dropdown-menu li a:hover {
 }
 
 .footer__block {
-	background: #41A6CA;
+	background: #0c0c0c;
 	padding: 80px 0
 }
 
 .footer__block h4 {
-	border-top: solid 1px #fff;
-	border-bottom: solid 1px #fff;
+	border-top: solid 1px #ff7473;
+	border-bottom: solid 1px #ff7473;
 	padding: 15px 0;
 	margin-bottom: 30px;
-	color: #fff;
+	color:#ff7473;
 	text-transform: uppercase;
 	letter-spacing: 0.08rem
 }
