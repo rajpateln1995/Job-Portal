@@ -17,6 +17,7 @@ class EmployeeRegistrationForm(UserCreationForm):
         self.fields['gender'].required = True
         self.fields['first_name'].label = "First Name"
         self.fields['last_name'].label = "Last Name"
+        self.fields['ph_no'].label = "Phone Number"
         self.fields['password1'].label = "Password"
         self.fields['password2'].label = "Confirm Password"
 
@@ -50,7 +51,7 @@ class EmployeeRegistrationForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'email', 'password1', 'password2', 'gender']
+        fields = ['first_name', 'last_name', 'email','ph_no', 'password1', 'password2', 'gender']
         error_messages = {
             'first_name': {
                 'required': 'First name is required',
@@ -62,6 +63,10 @@ class EmployeeRegistrationForm(UserCreationForm):
             },
             'gender': {
                 'required': 'Gender is required'
+            }
+            'ph_no':{
+                'required': 'Please Enter phone number',
+                'max_length':'Please enter valid number.'
             }
         }
 
@@ -85,6 +90,8 @@ class EmployerRegistrationForm(UserCreationForm):
         super(EmployerRegistrationForm, self).__init__(*args, **kwargs)
         self.fields['first_name'].label = "Company Name"
         self.fields['last_name'].label = "Company Address"
+        self.fields['ig_url'].label = "Facebook Link"
+        self.fields['twitter_url'].label = "Twitter Link"
         self.fields['password1'].label = "Password"
         self.fields['password2'].label = "Confirm Password"
 
@@ -113,10 +120,21 @@ class EmployerRegistrationForm(UserCreationForm):
                 'placeholder': 'Confirm Password',
             }
         )
+        self.fields['ig_url'].widget.attrs.update(
+            {
+                'placeholder': 'Facebook Link',
+            }
+        )
+        self.fields['twitter_url'].widget.attrs.update(
+            {
+                'placeholder': 'Twitter Link',
+            }
+        )
+
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'email', 'password1', 'password2']
+        fields = ['first_name', 'last_name', 'email','ig_url','twitter_url', 'password1', 'password2']
         error_messages = {
             'first_name': {
                 'required': 'First name is required',
@@ -184,7 +202,12 @@ class EmployeeProfileUpdateForm(forms.ModelForm):
                 'placeholder': 'Enter Last Name',
             }
         )
+        self.fields['ph_no'].widget.attrs.update(
+            {
+                'placeholder':'Ph No.'
+            }
+        )
 
     class Meta:
         model = User
-        fields = ["first_name", "last_name", "gender"]
+        fields = ["first_name", "last_name", "gender","ph_no"]

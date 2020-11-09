@@ -2,11 +2,12 @@ from django.contrib.auth.decorators import login_required
 from django.http import Http404
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
-from django.views.generic import UpdateView
+from django.views.generic import UpdateView,ListView
 
 from accounts.forms import EmployeeProfileUpdateForm
 from accounts.models import User
 from jobsapp.decorators import user_is_employee
+from jobsapp.models import Job, Applicant
 
 
 class EditProfileView(UpdateView):
@@ -35,3 +36,24 @@ class EditProfileView(UpdateView):
         if obj is None:
             raise Http404("Job doesn't exists")
         return obj
+
+class ApplicationsView(ListView):
+    model = Job
+    template_name = 'jobs/employee/applications.html'
+    context_object_name = 'jobs_list'
+    # @login_required(login_url=reverse_lazy('accounts:login'))
+    def get_queryset(self):
+        applied_job = Applicant.objects.filter(user = self.request.user.id).values('job')
+        l = []
+        for j in applied_job:
+            l.append(j['job'])
+        jobs = []
+        for j in l :
+            job = self.model.objects.filter(id=j).values('title','location','category')
+            jobs.append(job)
+
+        # for j in jobs:
+        #     for i in j:
+        #         print(i)
+
+        return jobs
