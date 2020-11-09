@@ -4,7 +4,7 @@ from django.http import Http404, HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.utils import timezone
 from django.utils.decorators import method_decorator
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, TemplateView
 
 from ..documents import JobDocument
 from ..forms import ApplyJobForm

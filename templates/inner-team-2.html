@@ -1,0 +1,169 @@
+﻿<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-52115242-15"></script>
+
+
+    <meta charset="utf-8">
+    <title>Insight Bootstrap Theme</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A corporate Bootstrap theme by Medium Rare">
+   
+    <link href="assets\css\theme.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body> -->
+    {% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Home
+{% endblock %}
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/preet.css' %}">
+{% endblock %}
+
+{% block content %}
+    
+
+    <section class="bg-dark">
+      <img src="../static/img/header-8.jpg" alt="Image" class="bg-image opacity-70">
+      <div class="container height-lg-30">
+        <div class="row">
+          <div class="col-md-8 col-lg-7 col-xl-6">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb p-0 bg-dark bg-transparent">
+                <li class="breadcrumb-item">
+                  <a class="text-white" href="index.html">Blue Collar Dashboard</a>
+                </li>
+                <li class="breadcrumb-item">
+                  <a class="text-white" href="pages-inner.html">Last Page</a>
+                </li>
+                <li class="breadcrumb-item active text-white" aria-current="page">
+                  Our Team
+                </li>
+              </ol>
+            </nav>
+            <h1 class="display-4 text-white">
+              Our Team
+            </h1>
+            <p class="lead mb-0 text-white">
+              Introducing our dedicated team. We hope you liked our project as we whole heartedly devoted myriad of hours and efforts to put this together. Thank you.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+       
+        
+        <div class="row mb-4">
+          <div class="col">
+            <span class="h2">Development Team</span>
+          </div>
+        </div>
+        <div class="row mb-4">
+          <div class="col-6 col-md-4 col-xl-3 d-flex">
+            <div class="card">
+              <img class="card-img-top" height="300px" src="../static/img/Preet.jpg" alt="Lucille Hobson">
+              <div class="card-body py-3">
+                <h5 class="mb-0">Preet Sanghavi</h5>
+                <span>FrontEnd</span>
+              </div>
+              <div class="card-footer pt-0 border-top-0">
+                <a href="#">https://www.linkedin.com/in/preet-sanghavi-981739184/</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-xl-3 d-flex">
+            <div class="card">
+              <img class="card-img-top" height="300px" src="../static/img/Raj.jpeg" alt="Frank Jacobs">
+              <div class="card-body py-3">
+                <h5 class="mb-0">Raj Ghamsani</h5>
+                <span>Full stack</span>
+              </div>
+              <div class="card-footer pt-0 border-top-0">
+                <a href="#">https://www.linkedin.com/in/raj-ghamsani/</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-xl-3 d-flex">
+            <div class="card">
+              <img class="card-img-top" height="300px" src="../static/img/Rishi.jpeg" alt="Rishi Parekh">
+              <div class="card-body py-3">
+                <h5 class="mb-0">Rishi Parekh</h5>
+                <span>Full stack</span>
+              </div>
+              <div class="card-footer pt-0 border-top-0">
+                <a href="#">https://www.linkedin.com/in/rishi-parekh-063085190</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-xl-3 d-flex">
+            <div class="card">
+              <img class="card-img-top" height="300px" src="../static/img/avatar.png" alt="Robin Finch">
+              <div class="card-body py-3">
+                <h5 class="mb-0">Rohan Mistry</h5>
+                <span>BackEnd</span>
+              </div>
+              <div class="card-footer pt-0 border-top-0">
+                <a href="#">robin@insight.io</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-4">
+          <div class="col">
+            <span class="h2">Join our team</span>
+          </div>
+        </div>
+        <div class="row mb-4">
+          <div class="col-6 col-md-4 d-flex">
+            <div class="card">
+              <div class="card-body">
+                <div class="mb-3 mt-2">
+                  <span class="h6">Our Aim</span>
+                </div>
+                <div class="mb-sm-5">
+                  <span class="h2">To make this portal globally viable.</span>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="d-flex align-items-center justify-content-between">
+                  <a href="#">More Information</a>
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 d-flex">
+            <div class="card">
+              <div class="card-body">
+                <div class="mb-3 mt-2">
+                  <span class="h6">Our motivation</span>
+                </div>
+                <div class="mb-sm-5">
+                  <span class="h2">Kylie Jenner</span>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="d-flex align-items-center justify-content-between">
+                  <a href="#">More Information</a>
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 d-flex">
+           
+        </div>
+       
+      </div>
+    </section>
+
+  
+    {% endblock %}
+
+  <!-- </body>
+</html> -->
