@@ -63,7 +63,7 @@ class EmployeeRegistrationForm(UserCreationForm):
             },
             'gender': {
                 'required': 'Gender is required'
-            }
+            },
             'ph_no':{
                 'required': 'Please Enter phone number',
                 'max_length':'Please enter valid number.'

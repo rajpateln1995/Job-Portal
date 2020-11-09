@@ -23,11 +23,12 @@
                         <div class="box applicant">
                             <h4>{{ applicant.user.get_full_name }}</h4>
                             <p><strong>Applied position: {{ applicant.job.title }}</strong></p>
-                            <a href="#" data-toggle="modal" data-target="#contact-modal"
+                            <!-- <a href="#" data-toggle="modal" data-target="#contact-modal"
                                class="btn btn-outline-white-secondary btn-sm">
                                 <i class="fa fa-envelope"></i>Contact
-                            </a>
-                            <p>
+                            </a> -->
+                            Contact : {{applicant.user.ph_no}}
+                            <p class="mt-2">
                                 <span class="badge badge-info">Applied {{ applicant.created_at.astimezone }}</span>
                             </p>
                             <div class="d-flex justify-content-between">
