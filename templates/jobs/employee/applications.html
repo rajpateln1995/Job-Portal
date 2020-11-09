@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}
+    Applicants
+{% endblock %}
+{% load static %}
+
+{% block content %}
+
+{% for job in jobs_list%}
+    <p>job.title</p>
+    <p>job.location</p>
+    <p>job.category</p>
+{% endfor%}
+
+{% endblock %}
