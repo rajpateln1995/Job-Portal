@@ -5,6 +5,38 @@
 {% load static %}
 
 {% block content %}
+<div class="container raj mb-5">
+    <h1 style="border-bottom: solid black 1px;" class="text-center mt-5">Your Applications</h1>
+    <table class="table mt-5 border border-dark">
+        <thead class="thead-dark">
+            <th>TITLE</th>
+            <th>LOCATION</th>
+            <th>CATEGORY</th>
+        </thead>
+        <tbody>
+            
+            {% for job in jobs_list %}
+                <tr>
+                    {% for j in job %}
+                        <td>{{ j.title }}</td>
+                        <td>{{ j.location }}</td>
+                        {% if j.category == "1" %}
+                        <td> Plumbing</td>
+                        {% elif j.category == "2" %}
+                        <td> Carpentry</td>
+                        {% elif j.category == "3" %}
+                        <td> Masonary</td>
+                        {% elif j.category == "4" %}
+                        <td>Electical Reapair</td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+            
+        </tbody>
+    </table>
+</div>
+    
 
 {% for job in jobs_list%}
     <p>job.title</p>
