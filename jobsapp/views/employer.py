@@ -40,7 +40,8 @@ class ApplicantPerJobView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['job'] = Job.objects.get(id=self.kwargs['job_id'])
+        query = 'SELECT * from jobsapp_job WHERE id=' + str(self.kwargs['job_id'])
+        context['job'] = Job.objects.raw(query)
         return context
 
 
