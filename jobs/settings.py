@@ -172,25 +172,7 @@ SIMPLE_JWT = {
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
 }
 
-LOGGING = {
-    "version": 1,
-    "disable_existing_loggers": False,
-    "handlers": {
-        "file": {
-            "level": "INFO",
-            "class": "logging.handlers.TimedRotatingFileHandler",
-            "filename": os.path.join(BASE_DIR, "logs/debug.log"),
-            "when": "D",  # this specifies the interval
-            "interval": 1,  # defaults to 1, only necessary for other values
-            "backupCount": 100,  # how many backup file to keep, 10 days
-        }
-    },
-    "loggers": {
-        "django": {"handlers": ["file"], "level": "INFO", "propagate": True},
-        "project": {"handlers": ["file"], "level": "INFO", "propagate": True},
-        "": {"handlers": ["file"], "level": "INFO", "propagate": True},
-    },
-}
+
 
 ELASTIC_HOST_NAME = os.environ.get('ELASTIC_HOST_NAME', 'localhost')
 ELASTIC_HOST_PORT = os.environ.get('ELASTIC_HOST_PORT', '9200')
